@@ -1,30 +1,31 @@
 require_relative 'player_one'
 require_relative 'player_two'
 class Board
-  attr_accessor :upr_row, :midl_row, :botm_row
+  attr_accessor :square
 
-  def initialize(row_array)
-    @upr_row = row_array[0]
-    @midl_row = row_array[1]
-    @botm_row = row_array[2]
-    p row_array
+  def initialize(square)
+    @square = square
+    p square
   end
 
   def show_board
     width = 60
     puts
-    puts "#{upr_row[0]}|#{upr_row[1]}|#{upr_row[2]}".center(width)
-    puts "#{midl_row[0]}|#{midl_row[1]}|#{midl_row[2]}".center(width)
-    puts "#{botm_row[0]}|#{botm_row[1]}|#{botm_row[2]}".center(width)
+    puts "#{square[0]}|#{square[1]}|#{square[2]}".center(width)
+    puts "#{square[3]}|#{square[4]}|#{square[5]}".center(width)
+    puts "#{square[6]}|#{square[7]}|#{square[8]}".center(width)
     puts 
   end
   
   def check_for_win(p)
+    p p.sign
     case
-    when @upr_row = [p.sign,p.sign,p.sign] then match_in_progress = false
-    when @midl_row = [p.sign,p.sign,p.sign] then match_in_progress = false
-    when @botm_row = [p.sign,p.sign,p.sign] then match_in_progress = false
-    else "siema"
+    when square[0] + square[1] + square[2] == p.sign * 3 then puts "siemaneczko" 
+    when square[3] + square[4] + square[5] == p.sign * 3 then puts "siemaneczko" 
+    when square[6] + square[7] + square[8] == p.sign * 3 then puts "siemaneczko" 
+    when square[0] + square[4] + square[8] == p.sign * 3 then puts 'siemaneczko'
+    when square[2] + square[4] + square[6] == p.sign * 3 then puts "siemanczko"
+    else return
     end
     puts "#{p.name} has won the game"
   end
