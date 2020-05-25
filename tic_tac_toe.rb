@@ -25,7 +25,7 @@ board.show_board
     board.show_board
 
       if match_in_progress == false
-        puts "#{player_two.name} has won this match! Congratulations"
+        puts "#{player_one.name} has won this match! Congratulations"
         break
       end
     puts "#{player_two.name}'s turn"
@@ -35,11 +35,11 @@ board.show_board
         puts "This position isn't present or was already taken"
         integer_move = gets.chomp.to_i
       end
-      
+
     player_two.move(board,integer_move)
       match_in_progress = board.check_for_win(player_two)
     board.show_board
-    
+
       if match_in_progress == false
         puts "#{player_two.name} has won this match! Congratulations"
         break
