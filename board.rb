@@ -17,7 +17,7 @@ class Board
   
   def check_for_win(p)
     POSSIBLE_WINS.each do |set|
-      return false if square[set[0]] == p.sign && square[set[1]] == p.sign && square[set[2]] == p.sign
+      return false if square[set[0]] == p.sign && square[set[1]] == p.sign && square[set[2]] == p.sign 
     end
   end
 
