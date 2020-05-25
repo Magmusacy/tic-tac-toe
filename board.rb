@@ -5,7 +5,7 @@ class Board
   def initialize(square)
     @square = square
   end
-
+  
   def show_board
     width = 60
     puts
@@ -16,18 +16,16 @@ class Board
   end
   
   def check_for_win(p)
-    p p.sign
     case
-    when square[0] + square[1] + square[2] == p.sign * 3 then match_in_progress = false
-    when square[3] + square[4] + square[5] == p.sign * 3 then match_in_progress = false
-    when square[6] + square[7] + square[8] == p.sign * 3 then match_in_progress = false
-    when square[0] + square[3] + square[6] == p.sign * 3 then match_in_progress = false
-    when square[1] + square[4] + square[7] == p.sign * 3 then match_in_progress = false
-    when square[2] + square[5] + square[8] == p.sign * 3 then match_in_progress = false
-    when square[0] + square[4] + square[8] == p.sign * 3 then match_in_progress = false
-    when square[2] + square[4] + square[6] == p.sign * 3 then match_in_progress = false
-    else return
+    when "#{square[0]}#{square[1]}#{square[2]}" == p.sign * 3 then return false
+    when "#{square[3]}#{square[4]}#{square[5]}" == p.sign * 3 then return false
+    when "#{square[6]}#{square[7]}#{square[8]}" == p.sign * 3 then return false
+    when "#{square[0]}#{square[3]}#{square[6]}" == p.sign * 3 then return false
+    when "#{square[1]}#{square[4]}#{square[7]}" == p.sign * 3 then return false
+    when "#{square[2]}#{square[5]}#{square[8]}" == p.sign * 3 then return false
+    when "#{square[0]}#{square[4]}#{square[8]}" == p.sign * 3 then return false
+    when "#{square[2]}#{square[4]}#{square[6]}" == p.sign * 3 then return false
+    else return true
     end
-    puts "#{p.name} has won the game"
   end
 end
