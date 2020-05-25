@@ -16,16 +16,15 @@ class Board
   end
   
   def check_for_win(p)
-    case
-    when "#{square[0]}#{square[1]}#{square[2]}" == p.sign * 3 then return false
-    when "#{square[3]}#{square[4]}#{square[5]}" == p.sign * 3 then return false
-    when "#{square[6]}#{square[7]}#{square[8]}" == p.sign * 3 then return false
-    when "#{square[0]}#{square[3]}#{square[6]}" == p.sign * 3 then return false
-    when "#{square[1]}#{square[4]}#{square[7]}" == p.sign * 3 then return false
-    when "#{square[2]}#{square[5]}#{square[8]}" == p.sign * 3 then return false
-    when "#{square[0]}#{square[4]}#{square[8]}" == p.sign * 3 then return false
-    when "#{square[2]}#{square[4]}#{square[6]}" == p.sign * 3 then return false
-    else return true
+    POSSIBLE_WINS.each do |set|
+      return false if square[set[0]] == p.sign && square[set[1]] == p.sign && square[set[2]] == p.sign
     end
   end
+
+  protected
+  
+  POSSIBLE_WINS = [ [0,1,2],[3,4,5],[6,7,8],
+                    [0,3,6],[1,4,7],[1,4,7],
+                    [2,5,8],[0,4,8],[2,4,6] 
+                  ] # contains indexes of all possible win combinations
 end
