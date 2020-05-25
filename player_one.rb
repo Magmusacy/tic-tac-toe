@@ -1,6 +1,5 @@
 class PlayerOne
-  attr_reader :sign
-  attr_accessor :name
+  attr_reader :sign, :name
   def initialize(name)
     @name = name
     @sign = "X"
