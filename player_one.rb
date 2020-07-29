@@ -2,10 +2,11 @@ class PlayerOne
   attr_reader :sign, :name
   def initialize(name)
     @name = name
-    @sign = "X"
+    @sign = 'X'
   end
 
-  def move(instance,num)
-    instance.square[instance.square.index(num)] = sign 
+  def move(instance, num)
+    index = num - 1
+    instance.square[index] = sign
   end
 end

@@ -1,6 +1,6 @@
 class PlayerTwo < PlayerOne
   def initialize(name)
     super(name)
-    @sign = "O"
+    @sign = 'O'
   end
 end
